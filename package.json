@@ -1,0 +1,19 @@
+{
+  "name": "agis",
+  "version": "1.0.0",
+  "description": "Statična spletna stran. Brez frameworkov, brez build koraka.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@fontsource/jetbrains-mono": "^5.2.8",
+    "@fontsource/space-grotesk": "^5.2.10"
+  }
+}

@@ -25,12 +25,32 @@
 
 <!-- ========================================================
      SELF-HOSTED FONTS (GDPR skladno — brez zunanjih klicev)
-     Inter            — body / UI text
-     Cirrus Cumulus   — display / headlines (Velvetyne, OFL 1.1)
-     Compagnon        — mono / labels / specs (Velvetyne, OFL 1.1)
+     Space Grotesk   — display / headlines (OFL 1.1)
+     Inter           — body / UI text (OFL 1.1)
+     JetBrains Mono  — mono / labels / specs (OFL 1.1)
      ======================================================== -->
 <style>
 /* ===== SELF-HOSTED FONTS ===== */
+@font-face{
+  font-family:'SpaceGrotesk';
+  src:url('fonts/SpaceGrotesk-Regular.woff2') format('woff2');
+  font-weight:400;font-style:normal;font-display:swap;
+}
+@font-face{
+  font-family:'SpaceGrotesk';
+  src:url('fonts/SpaceGrotesk-Medium.woff2') format('woff2');
+  font-weight:500;font-style:normal;font-display:swap;
+}
+@font-face{
+  font-family:'SpaceGrotesk';
+  src:url('fonts/SpaceGrotesk-SemiBold.woff2') format('woff2');
+  font-weight:600;font-style:normal;font-display:swap;
+}
+@font-face{
+  font-family:'SpaceGrotesk';
+  src:url('fonts/SpaceGrotesk-Bold.woff2') format('woff2');
+  font-weight:700;font-style:normal;font-display:swap;
+}
 @font-face{
   font-family:'Inter';
   src:url('fonts/Inter-Regular.woff2') format('woff2');
@@ -47,24 +67,14 @@
   font-weight:600;font-style:normal;font-display:swap;
 }
 @font-face{
-  font-family:'CirrusCumulus';
-  src:url('fonts/CirrusCumulus-Regular.woff2') format('woff2');
+  font-family:'JetBrainsMono';
+  src:url('fonts/JetBrainsMono-Regular.woff2') format('woff2');
   font-weight:400;font-style:normal;font-display:swap;
 }
 @font-face{
-  font-family:'Compagnon';
-  src:url('fonts/Compagnon-Roman.woff2') format('woff2');
-  font-weight:400;font-style:normal;font-display:swap;
-}
-@font-face{
-  font-family:'Compagnon';
-  src:url('fonts/Compagnon-Medium.woff2') format('woff2');
+  font-family:'JetBrainsMono';
+  src:url('fonts/JetBrainsMono-Medium.woff2') format('woff2');
   font-weight:500;font-style:normal;font-display:swap;
-}
-@font-face{
-  font-family:'Compagnon';
-  src:url('fonts/Compagnon-Bold.woff2') format('woff2');
-  font-weight:700;font-style:normal;font-display:swap;
 }
 </style>
 
@@ -104,9 +114,9 @@
   --line:#262626; --line-2:#333;
   --fg:#fafafa; --fg-2:#a3a3a3; --fg-3:#6e6e6e; --fg-4:#4a4a4a;
   --accent:#c0392b; --accent-2:#e85a4a;
-  --display:'CirrusCumulus','Compagnon','Inter','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --display:'SpaceGrotesk','Inter','Helvetica Neue',Helvetica,Arial,sans-serif;
   --body:'Inter','Helvetica Neue',Helvetica,Arial,sans-serif;
-  --mono:'Compagnon',ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+  --mono:'JetBrainsMono',ui-monospace,'SF Mono',Menlo,Consolas,monospace;
   --max:1280px; --gutter:24px;
   --section-y:clamp(80px,12vw,140px);
   --header-h:72px;
@@ -208,6 +218,7 @@ p:last-child{margin-bottom:0}
 .hero-bg{
   position:absolute;inset:0;
   background:
+    linear-gradient(90deg,rgba(0,0,0,.82) 0%,rgba(0,0,0,.55) 38%,rgba(0,0,0,.1) 62%,transparent 78%),
     linear-gradient(180deg,transparent 0%,transparent 78%,rgba(0,0,0,.55) 100%),
     radial-gradient(ellipse 70% 60% at 78% 45%, rgba(192,57,43,.08), transparent 55%),
     repeating-linear-gradient(0deg, transparent 0 39px, rgba(255,255,255,.018) 39px 40px),
@@ -469,15 +480,12 @@ p:last-child{margin-bottom:0}
   display:grid;grid-template-columns:1fr;gap:36px;
   max-width:var(--max);margin:0 auto;
 }
-@media (min-width:1101px){
-  .hero-grid > *:not(.hero-stats):not(.hero-anim){max-width:none}
-}
 .hero-eyebrow{display:flex;align-items:center;gap:16px;font-family:var(--mono);font-size:11px;color:var(--fg-3);letter-spacing:.18em;text-transform:uppercase;flex-wrap:wrap}
 .hero-eyebrow .pulse{width:8px;height:8px;background:var(--accent);border-radius:50%;box-shadow:0 0 0 4px rgba(192,57,43,.18)}
 .hero-eyebrow .sep{color:var(--fg-4)}
 .hero h1{max-width:15ch}
 .hero h1 .accent{color:var(--accent)}
-.hero-lead{max-width:54ch;font-size:clamp(17px,1.4vw,20px);color:var(--fg-2);line-height:1.55}
+.hero-lead{max-width:42ch;font-size:clamp(17px,1.4vw,20px);color:#a8a8a8;line-height:1.55;text-shadow:0 2px 20px rgba(0,0,0,.95),0 0 40px rgba(0,0,0,.7)}
 
 .hero-cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:14px}
 .btn{
@@ -963,15 +971,7 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 16px)}
       <span>Kapaciteta 80 t / mesec</span>
     </p>
 
-    <h1>
-      Industrijsko<br>
-      prašno barvanje<br>
-      <span class="accent">brez kompromisov.</span>
-    </h1>
-
-    <p class="hero-lead">
-      Od leta 1995 v Ptuju barvamo kovinske površine za avtomobilsko, belo tehniko, pohištveno in elektroindustrijo. Lakirnice do 7&nbsp;m, predobdelava po DIN, sledljivost serij in dosledna kakovost po ISO 9001.
-    </p>
+    <h1>Industrijsko<br>barvanje<br><span class="accent">brez kompromisov.</span></h1>
 
     <div class="hero-cta-row">
       <a href="#kontakt" class="btn btn-primary">Pridobi ponudbo <span class="arrow">→</span></a>
@@ -1192,8 +1192,8 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 16px)}
         <div class="cap-row"><span class="cap-row-label">Lakirnica A — višina</span><span class="cap-row-value">2000<span class="u">mm</span></span></div>
         <div class="cap-row"><span class="cap-row-label">Lakirnica B — DxŠxV</span><span class="cap-row-value">3500 × 1500 × 1500<span class="u">mm</span></span></div>
         <div class="cap-row"><span class="cap-row-label">Maks. teža kosa</span><span class="cap-row-value">500<span class="u">kg</span></span></div>
-        <div class="cap-row"><span class="cap-row-label">Peč — temperatura</span><span class="cap-row-value">do 220<span class="u">°C</span></span></div>
-        <div class="cap-row"><span class="cap-row-label">Predobdelava — stopnje</span><span class="cap-row-value">7<span class="u">stopenj</span></span></div>
+        <div class="cap-row"><span class="cap-row-label">Temperatura peči</span><span class="cap-row-value">do 220<span class="u">°C</span></span></div>
+        <div class="cap-row"><span class="cap-row-label">Stopnje predobdelave</span><span class="cap-row-value">7<span class="u">stopenj</span></span></div>
         <div class="cap-row"><span class="cap-row-label">Mesečna kapaciteta</span><span class="cap-row-value">80<span class="u">t / mes.</span></span></div>
         <div class="cap-row"><span class="cap-row-label">Debelina filma</span><span class="cap-row-value">60–120<span class="u">µm</span></span></div>
         <div class="cap-row"><span class="cap-row-label">Standardni rok dobave</span><span class="cap-row-value">5–10<span class="u">del. dni</span></span></div>
@@ -1275,16 +1275,16 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 16px)}
         <span class="label">Kakovost</span>
       </div>
       <div>
-        <h2>Standardi, ki niso le na papirju.</h2>
+        <h2>Standardi, ki ne živijo le na papirju.</h2>
         <p class="intro">Sistem kakovosti je certificiran in revidiran. Vsaka serija nosi sledljivo dokumentacijo, kar je pogoj za delo z avtomobilskimi in elektroindustrijskimi naročniki.</p>
       </div>
     </header>
 
     <div class="q-grid reveal">
       <div class="q-content">
-        <p>Naš QA-protokol pokriva celotno verigo — od vhodne kontrole materiala, parametrov predobdelave, debeline filma in barvne skladnosti do izhodne kontrole pred odpremo.</p>
+        <p>Naš QA-protokol pokriva celotno verigo, vse od vhodne kontrole materiala, parametrov predobdelave, debeline filma in barvne skladnosti do izhodne kontrole pred odpremo.</p>
         <ul class="q-list">
-          <li><span class="k">DFT</span><span class="v">Merjenje debeline filma<small>Elcometer 456 — minimum 3 točke / kos, log po seriji</small></span></li>
+          <li><span class="k">DFT</span><span class="v">Merjenje debeline filma<small>Elcometer 456 - minimum 3 točke / kos, log po seriji</small></span></li>
           <li><span class="k">Adhezija</span><span class="v">Cross-cut test po ISO 2409<small>Periodično testiranje po seriji praška</small></span></li>
           <li><span class="k">Sij</span><span class="v">Glossmeter 60° po ISO 2813<small>Tolerance po dogovoru z naročnikom</small></span></li>
           <li><span class="k">Salt-spray</span><span class="v">Korozijska komora po ISO 9227<small>Po dogovoru, za zahtevne dele (avto, fasade)</small></span></li>
@@ -1305,7 +1305,7 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 16px)}
           <div class="cert-mark iso14">ISO<br>14001</div>
           <div>
             <h4>ISO 14001:2015</h4>
-            <p>Sistem ravnanja z okoljem. Ločeno zbiranje odpadkov, ravnanje s tehnološko vodo.</p>
+            <p>Sistem ravnanja z okoljem. Ločeno zbiranje odpadkov, standardizirano ravnanje s tehnološko vodo.</p>
             <div class="meta">CERT · SI-EM-027 · velja 2026</div>
           </div>
         </div>
@@ -1333,7 +1333,7 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 16px)}
         <span class="label">Industrije</span>
       </div>
       <div>
-        <h2>Komu serijsko dobavljamo.</h2>
+        <h2>Komu serijsko dobavljamo?</h2>
         <p class="intro">Specifični zahtevki različnih panog so vključeni v interne kontrolne plane. V zadnjih treh letih smo izvajali serije za naročnike v Sloveniji, Avstriji, Italiji in na Hrvaškem.</p>
       </div>
     </header>
@@ -1372,7 +1372,7 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 16px)}
       <article class="ref">
         <span class="num">§ 05.06</span>
         <h4>Arhitektura & fasade</h4>
-        <p>Aluminijasti profili, ograje, žaluzije. Qualicoat-skladni postopki na zahtevo.</p>
+        <p>Aluminijasti profili, ograje, žaluzije. Qualicoat - skladni postopki na zahtevo.</p>
         <span class="tag">EXTERIOR</span>
       </article>
       <article class="ref">
@@ -1402,13 +1402,14 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 16px)}
         <span class="label">O podjetju</span>
       </div>
       <div>
-        <h2>30 let v Ptuju, brez sezone počitka.</h2>
+        <h2>30 let na Ptuju.</h2>
         <p class="intro">Družinsko podjetje, ki je naraslo iz ene majhne lakirnice do dveh kapacitetnih linij. Ekipa 24 zaposlenih, večina z več kot 10 leti v sektorju.</p>
       </div>
     </header>
 
     <div class="about reveal">
       <div class="about-text">
+        <p>Na Ptuju že od leta 1995. Predobdelava po DIN, sledljivost serij in dosledna kakovost po ISO 9001.</p>
         <p class="lead">Ena lokacija. Vse pod eno streho. <em>Predobdelava, prašno barvanje in mokra linija</em> — brez zunanjih podizvajalcev za kritične korake.</p>
         <p>To pomeni manj prelaganja, manj logističnih praznih hodov in krajše dejanske čase med ponudbo in odpremo. Tudi kontrola kakovosti ostane interna, kar je razlog, da se naročniki iz avtomobilske in elektroindustrijske branže k nam vračajo serijsko.</p>
         <p>Investiramo letno v opremo in tehnologijo — zadnja investicija je avtomatizacija nanosa praška na velikih okvirjih, kar je skrajšalo cikle za ~22%.</p>
@@ -1431,7 +1432,7 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 16px)}
       <li class="tl-item">
         <div class="tl-year">1995</div>
         <h4>Ustanovitev</h4>
-        <p>Prva lakirnica v Ptuju, 4 zaposleni.</p>
+        <p>Prva lakirnica na Ptuju, 4 zaposleni.</p>
       </li>
       <li class="tl-item">
         <div class="tl-year">2008</div>
@@ -1472,7 +1473,7 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 16px)}
       <aside class="contact-info">
         <div>
           <h3>AGIS, d.o.o.</h3>
-          <p class="lead">Sediti in čakati ali poklicati — odločitev je vaša.</p>
+          <p class="lead">Sediti in čakati ali poklicati. Odločitev je vaša.</p>
         </div>
         <div class="info-block">
           <span class="k">Naslov</span>
